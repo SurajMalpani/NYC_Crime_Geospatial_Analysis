@@ -9,8 +9,7 @@ library(ggplot2)
 library(data.table)
 library(ggmap)
 
-setwd("C:/Users/suraj/Documents")
-dataset <- read_csv("DummyVariables_R_Comp_MIS/Dataset.csv")
+
 glimpse(dataset)
 summary(dataset)
 names(dataset)
@@ -47,6 +46,7 @@ crime_violation <- dataset%>%
   filter(CMPLNT_FR_DT > "12/31/2011" )
 crime_violation <- crime_violation[complete.cases(crime_violation),]
 
+#ggmap
 ny <- get_map(location='New York',zoom=11, maptype="terrain")
 ggmap(ny)
 #Plot by Law category
@@ -56,7 +56,7 @@ ggmap(ny)+
     data=crime_violation
   )
 
-#plot by ofns_desc -- Goood plot
+#plot by ofns_desc
 ggmap(ny)+
   geom_point(
     aes(x=Longitude, y=Latitude, colour=OFNS_DESC, shape=CRM_ATPT_CPTD_CD, alpha=1/50),
@@ -64,6 +64,7 @@ ggmap(ny)+
   )+
   facet_wrap(~LAW_CAT_CD)
 
+#Plots by top boroughs
 #Brooklyn
 crime_location <- dataset%>%
   select(CMPLNT_FR_DT, Longitude, Latitude, Lat_Lon, OFNS_DESC, BORO_NM, CRM_ATPT_CPTD_CD, LAW_CAT_CD, PREM_TYP_DESC) %>%
