@@ -2,6 +2,6 @@
 Analyzing New York City Crime Data using R
 
 
-Data Source: [https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i]
+Data Source: [City of New York](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i)
 
-Used ggmap pacakge to visualize geospatially the Crime Data in 5 boroughs of New York City
+Used ggmap package to visualize geospatially the Crime Data in 5 boroughs of New York City. Analyzed the Crime patterns in boroughs based on timings of the crimes, days of the crimes.
